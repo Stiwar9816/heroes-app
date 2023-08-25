@@ -1,0 +1,16 @@
+<h1 mat-dialog-title>¿Estás seguro?</h1>
+<div mat-dialog-content>
+  <p>
+    Este proceso no es reversible, esta a punto de eliminar a
+    <strong>
+      {{ data.superhero | uppercase }}
+    </strong>
+  </p>
+</div>
+<div mat-dialog-actions class="my-2">
+  <button mat-flat-button color="accent" (click)="onNoClick()">Cancelar</button>
+  <span class="spacer"></span>
+  <button mat-flat-button color="primary" (click)="onConfirm()" cdkFocusInitial>
+    Confirmar
+  </button>
+</div>

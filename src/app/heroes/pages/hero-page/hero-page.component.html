@@ -1,0 +1,55 @@
+<ng-template #divLoading>
+  <mat-grid-list cols="1">
+    <mat-grid-tile>
+      <mat-spinner />
+    </mat-grid-tile>
+  </mat-grid-list>
+</ng-template>
+
+<div
+  *ngIf="hero; else divLoading"
+  class="grid mt-2 p-3 gap-3 justify-content-center border-round-lg"
+>
+  <mat-card class="col-12 md:col-6 lg:col-5">
+    <mat-card-header>
+      <mat-card-title class="text-4xl"> {{ hero.alter_ego }} </mat-card-title>
+      <mat-card-subtitle class="my-3 text-lg">
+        {{ hero.superhero }}
+      </mat-card-subtitle>
+    </mat-card-header>
+
+    <img
+      class="border-round-lg mb-2"
+      [src]="hero | heroImage"
+      [alt]="hero.superhero"
+      mat-card-image
+    />
+  </mat-card>
+
+  <mat-card class="col-12 md:col-6 lg:col-6">
+    <mat-card-header>
+      <mat-card-title class="text-4xl"> Información </mat-card-title>
+      <mat-card-subtitle class="my-3 text-lg">
+        {{ hero.superhero }}
+      </mat-card-subtitle>
+    </mat-card-header>
+
+    <mat-card-content>
+      <mat-list>
+        <mat-list-item>
+          <strong>Primera aparición:</strong> {{ hero.first_appearance }}
+        </mat-list-item>
+        <mat-list-item>
+          <strong>Personajes:</strong> {{ hero.characters }}
+        </mat-list-item>
+        <mat-list-item>
+          <strong>Franquicia:</strong> {{ hero.publisher }}
+        </mat-list-item>
+        <mat-list-item
+          ><strong>Alter Ego:</strong> {{ hero.alter_ego }}
+        </mat-list-item>
+      </mat-list>
+      <button mat-flat-button color="warn" (click)="goBack()">Regresar</button>
+    </mat-card-content>
+  </mat-card>
+</div>
